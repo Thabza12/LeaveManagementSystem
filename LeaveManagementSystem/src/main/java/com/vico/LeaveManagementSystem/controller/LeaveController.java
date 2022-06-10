@@ -53,20 +53,23 @@ public class LeaveController {
             leave.setDaysLeft(totalDays - difference_In_Days+ " day(s) left");
 
 
-            this.service.sendMessage(
-                    "thabisocele.sanele@gmail.com",
-                    "Leave Application Request",
-                    leave.getReason()
-            );
-
-
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
 
-
+        sendMail();
 
         return repository.save(leave);
+    }
+
+
+    String sendMail(){
+        this.service.sendMessage(
+                "thabisocele.sanele@gmail.com",
+                "Leave Application Request",
+                "Leave application"
+        );
+        return "email sent successfully";
     }
 
 
