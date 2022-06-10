@@ -1,0 +1,41 @@
+<div class="class container">
+    <form (ngSubmit)="onSubmit()">
+        <br>
+        <h1>Leave application form</h1>
+        <br>
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" [(ngModel)]="leave.name" placeholder="First name" name="name">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" [(ngModel)]="leave.surname" placeholder="Last name"
+                    name="surname">
+            </div>
+        </div>
+        <br>
+        <label for="browser" class="form-label">Select leave type:</label>
+        <input class="form-control" [(ngModel)]="leave.leaveType" list="browsers" name="leaveType" id="browser">
+        <datalist id="browsers">
+            <option value="SICK_LEAVE">
+            <option value="ANNUAL_LEAVE">
+            <option value="FAMILY_RESPONSIBILITY">
+            <option value="STUDY_LEAVE">
+        </datalist>
+        <div class="mb-3 mt-3">
+            <label for="startDate" class="form-label">Start Date:</label>
+            <input type="date" class="form-control" [(ngModel)]="leave.startDate" id="startDate" name="startDate">
+        </div>
+        <div class="mb-3">
+            <label for="endDate" class="form-label">End Date:</label>
+            <input type="date" class="form-control" id="endDate" [(ngModel)]="leave.endDate" name="endDate">
+        </div>
+    
+        <label for="comment">Reason:</label>
+        <textarea class="form-control" [(ngModel)]="leave.reason" rows="5" id="comment" name="reason"></textarea>
+        <br>
+
+        <button type="submit[disabled]" class="btn btn-success" (click)="onSubmit()">Submit</button>
+
+
+    </form>
+</div>
